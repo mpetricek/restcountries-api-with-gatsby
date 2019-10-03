@@ -1,0 +1,36 @@
+@mixin chevron($direction: right, $size: 1rem, $stroke: 3px) {
+    $rotation: 45deg;
+    $margin: 0;
+
+    @if $direction==up {
+        $rotation: -45deg;
+        $margin: 0 0 (-$size / 2) 0;
+    }
+
+    @else if $direction==right {
+        $rotation: 45deg;
+        $margin: 0 0 0 (-$size / 2);
+    }
+
+    @else if $direction==down {
+        $rotation: 135deg;
+        $margin: (-$size / 2) 0 0 0;
+    }
+
+    @else if $direction==left {
+        $rotation: -135deg;
+        $margin: 0 (-$size / 2) 0 0;
+    }
+
+    border-style: solid;
+    border-width: $stroke $stroke 0 0;
+    color: currentColor;
+    content: '';
+    display: inline-block;
+    margin: $margin;
+    position: relative;
+    transform: rotate($rotation);
+    vertical-align: middle;
+    width: $size;
+    height: $size;
+}

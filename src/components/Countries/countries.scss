@@ -1,0 +1,89 @@
+.countries {
+    display: flex;
+    border: 0;
+    padding: 1rem;
+    .rt {
+        &-table {
+            color: $darkGrey;
+            img {
+                max-width: 100%;
+            }
+        }
+        &-tbody, &-thead {
+            border: 0;
+            box-shadow: none !important;
+        }
+        &-tr {
+            display: flex;
+            align-items: center;
+        }
+        &-tr-group {
+            border-bottom: 1px solid #EDEDED !important;
+            line-height: 200%;
+            cursor: pointer;
+        }
+        &-td, &-th {
+            box-shadow: none !important;
+            border: 0 !important;
+            &:first-child {
+                width: 2.7rem !important;
+                flex: 1 0 auto !important;
+                margin-right: 1rem;
+                display: flex;
+            }
+            &:nth-child(2) {
+                font-weight: 600;
+            }
+            &:not(:nth-child(2)) {
+                text-align: center;
+            }
+            &.areaHeader .rt-resizable-header-content {
+                background: url('../../assets/images/area.svg');
+            }
+            &.capitalHeader .rt-resizable-header-content {
+                background: url('../../assets/images/capital.svg');
+            }
+            &.currenciesHeader .rt-resizable-header-content {
+                background: url('../../assets/images/currency.svg');
+            }
+            &.populationHeader .rt-resizable-header-content {
+                background: url('../../assets/images/population.svg');
+            }
+            &.populationHeader, &.areaHeader, &.capitalHeader, &.currenciesHeader {
+                .rt-resizable-header-content {
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center;
+                    display: block;
+                    width: 2rem;
+                    height: 2rem;
+                    margin: 0 auto;
+                }
+                &.-sort-desc, &.-sort-asc {
+                    .rt-resizable-header-content {
+                        overflow: visible;
+                        display: flex;
+                        align-items: center;
+                        &:before {
+                            @include chevron(up,.7rem,1px);
+                            position: relative;
+                            left: -70%;
+                        }
+                    }
+                }
+                &.-sort-asc .rt-resizable-header-content:before {
+                    @include chevron(down,.7rem,1px);
+                }
+            }
+        }
+        &-td {
+            &.currenciesColumn {
+                > div {
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }
+               
+            }
+        }
+    }
+}
